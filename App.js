@@ -3,6 +3,7 @@ import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator  } from '@react-navigation/stack';
 import ZipCodeScreen from './screen/ZipCodeScreen';
 import WeatherScreen from './screen/WeatherScreen';
+import { StyleSheet } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -18,3 +19,8 @@ export default function App() {
   );
 }
 
+const styles = StyleSheet.create({
+  home: {
+    textAlign: 'center'
+  }
+})

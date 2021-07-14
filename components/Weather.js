@@ -6,6 +6,7 @@ export default function Weather(props) {
     const APIKey = 'ea8a78efe25ee1ecb41aee4b7fec0e2c'
 
     const [forecastInfo, setForecastInfo] = useState({
+        name: '-',
         main: '-',
         description: '-',
         temp: 0
@@ -18,6 +19,7 @@ export default function Weather(props) {
                 .then((response) => response.json())
                 .then((json) => {
                     setForecastInfo({
+                        name: json.name,
                         main: json.weather[0].main,
                         description: json.weather[0].description,
                         temp: json.main.temp
