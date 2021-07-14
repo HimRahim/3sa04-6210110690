@@ -1,10 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import React,{ useState, useEffect } from 'react';
 import { ImageBackground, StyleSheet, Text } from 'react-native';
 import Forecast from './Forecast';
 
 export default function Weather(props) {
     const APIKey = 'ea8a78efe25ee1ecb41aee4b7fec0e2c'
-
+    const navigation = useNavigation()
     const [forecastInfo, setForecastInfo] = useState({
         name: '-',
         main: '-',
@@ -26,7 +27,9 @@ export default function Weather(props) {
                     });
                     })
             .catch((error) => {
-                console.warn(error);
+                alert("Invalid Zip Code")
+                // console.warn(error);
+                navigation.navigate("Search")
             });
         }
     }, [props.zipCode])

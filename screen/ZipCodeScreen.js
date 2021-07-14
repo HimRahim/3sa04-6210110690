@@ -25,19 +25,20 @@ const ZipItem = ({place, code, navigation}) => (
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <View style={styles.mainScreen}>
+        <View style={styles.container}>
             <FlatList 
                 data = {availableZipItems}
                 keyExtractor= {item => item.code}
                 renderItem =  {({item}) => <ZipItem {...item} navigation={navigation}/>}
             />
-            <Button style={styles.button} title="Search" onPress={() => {navigation.navigate('Search')}}/>
+            <Button title="Search" onPress={() => {navigation.navigate('Search')}}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    mainScreen: {
+    container: {
+        flex: 1,
         height: '100%',
         backgroundColor: 'darkgrey'
     },
@@ -46,15 +47,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         height: 60,
-        paddingVertical: 20
+        paddingVertical: 20,
+        paddingHorizontal: 10
     },
     zipPlace: {
         flex: 1
     },
     zipCode: {
         flex: 1
-    },
-    button: {
-        height: 70
     }
 })
