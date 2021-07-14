@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, TextInput, View, StyleSheet, Button } from 'react-native';
+import { SafeAreaView, Text, TextInput, View, StyleSheet, Button, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { allZipCode } from '../components/ZipCodeList'
 
@@ -29,23 +29,30 @@ export default function SearchScreen() {
         }
     }
     return (
-        <SafeAreaView>
-            <Text style={styles.labelText}>Type Thailand zip code</Text>
-            <TextInput 
-                style={styles.input} 
-                onChangeText={ (text) => setZipCode(text)}
-                keyboardType='number-pad'
-                placeholder='Zip Code'
-                onSubmitEditing={goToWeather}
-            />
-            <View style={styles.container}>
-                <Button title="search" onPress={goToWeather}/>
-            </View>
-        </SafeAreaView>
+        <ImageBackground source={require('../bg2.jpg')} style={styles.backdrop}>
+            <SafeAreaView>
+                <Text style={styles.labelText}>Type Thailand zip code</Text>
+                <TextInput 
+                    style={styles.input} 
+                    onChangeText={ (text) => setZipCode(text)}
+                    keyboardType='number-pad'
+                    placeholder='Zip Code'
+                    onSubmitEditing={goToWeather}
+                />
+                <View style={styles.container}>
+                    <Button title="search" onPress={goToWeather}/>
+                </View>
+            </SafeAreaView>
+        </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
+    backdrop: {
+        width: '100%',
+        height: '100%'
+        
+    },
     input: {
       height: 40,
       margin: 12,
@@ -53,7 +60,8 @@ const styles = StyleSheet.create({
     },
     labelText: {
         fontSize: 30,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginTop: '20%'
     },
     container: {
         marginHorizontal: '25%',
