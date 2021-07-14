@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function Forecast(props) {
     return (
         <View>
-            <Text>{props.main}</Text>
-            <Text>{props.description}</Text>
-            <Text>{props.temp}</Text>
+            <Text style={styles.propsStyle}>{props.main}</Text>
+            <Text style={styles.propsStyle}>{props.description}</Text>
+            <Text style={styles.propsStyle}>{props.temp} °C</Text>
             <Text>°C</Text>
         </View>
     )
 }
+const styles = StyleSheet.create({
+    propsStyle: {
+        textAlign: 'center'
+    }
+})
