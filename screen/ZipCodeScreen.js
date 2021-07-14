@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { FlatList, View, Text, StyleSheet } from 'react-native';
+import { FlatList, View, Text, StyleSheet, Button } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 const availableZipItems = [
@@ -13,8 +13,7 @@ const availableZipItems = [
    
 
 const ZipItem = ({place, code, navigation}) => (
-    <TouchableHighlight onPress={() => {
-        navigation.navigate('Weather', {zipCode: code})
+    <TouchableHighlight onPress={() => {navigation.navigate('Weather', {zipCode: code})
     }} underlayColor='white' activeOpacity={0.8}>
         <View style={styles.zipItem}>
             <Text>{place}</Text>
@@ -26,17 +25,22 @@ const ZipItem = ({place, code, navigation}) => (
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <View>
+        <View style={styles.mainScreen}>
             <FlatList 
                 data = {availableZipItems}
                 keyExtractor= {item => item.code}
                 renderItem =  {({item}) => <ZipItem {...item} navigation={navigation}/>}
             />
+            <Button style={styles.button} title="Search" onPress={() => {navigation.navigate('Search')}}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    mainScreen: {
+        height: '100%',
+        backgroundColor: 'darkgrey'
+    },
     zipItem: {
         flex: 1,
         flexDirection: 'row',
@@ -49,5 +53,8 @@ const styles = StyleSheet.create({
     },
     zipCode: {
         flex: 1
+    },
+    button: {
+        height: 70
     }
 })
