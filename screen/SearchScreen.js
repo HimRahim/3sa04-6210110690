@@ -8,7 +8,7 @@ export default function SearchScreen() {
     for (const iterator of allZipCode) {
         zipCodeArray.push(iterator.ZIPCODE)
     }
-    const [zipCode, setzipCode] = useState('')
+    const [zipCode, setZipCode] = useState('')
     const navigation = useNavigation();
     const goToWeather = () => {
         if (zipCode.length == 0){
@@ -33,7 +33,7 @@ export default function SearchScreen() {
             <Text style={styles.labelText}>Type Thailand zip code</Text>
             <TextInput 
                 style={styles.input} 
-                onChangeText={ (text) => setzipCode(text)}
+                onChangeText={ (text) => setZipCode(text)}
                 keyboardType='number-pad'
                 placeholder='Zip Code'
                 onSubmitEditing={goToWeather}

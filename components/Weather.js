@@ -27,9 +27,7 @@ export default function Weather(props) {
                     });
                     })
             .catch((error) => {
-                alert("Invalid Zip Code")
-                // console.warn(error);
-                navigation.navigate("Search")
+                console.warn(error);
             });
         }
     }, [props.zipCode])
