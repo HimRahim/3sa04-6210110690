@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     itemStyle: {
-        color: '#665954'
+        color: '#665954',
+        fontWeight: 'bold'
     }
 })

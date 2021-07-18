@@ -20,19 +20,19 @@ export default function SearchScreen() {
         else {
             
             if (zipCodeArray.includes(zipCode)) {
-                 navigation.navigate("Weather", {zipCode: zipCode})
+                navigation.navigate("Weather", {zipCode: zipCode})
             }
             else {
                 alert("Zip code does not exist")
-            }
-            
+                
+            }   
         }
     }
     return (
         <ImageBackground source={require('../source/bg2.jpg')} style={styles.backdrop}>
             <SafeAreaView>
                 <Text style={styles.labelText}>Type Thailand zip code</Text>
-                <TextInput 
+                <TextInput
                     style={styles.input} 
                     onChangeText={ (text) => setZipCode(text)}
                     keyboardType='number-pad'
@@ -57,11 +57,14 @@ const styles = StyleSheet.create({
       height: 40,
       margin: 12,
       borderWidth: 1,
+      color: '#665954',
+      borderColor: '#665954'
     },
     labelText: {
         fontSize: 30,
         textAlign: 'center',
-        marginTop: '20%'
+        marginTop: '20%',
+        color: '#665954'
     },
     container: {
         marginHorizontal: '25%',
