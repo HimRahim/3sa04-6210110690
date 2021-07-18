@@ -29,7 +29,7 @@ export default function SearchScreen() {
         }
     }
     return (
-        <ImageBackground source={require('../bg2.jpg')} style={styles.backdrop}>
+        <ImageBackground source={require('../source/bg2.jpg')} style={styles.backdrop}>
             <SafeAreaView>
                 <Text style={styles.labelText}>Type Thailand zip code</Text>
                 <TextInput 
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     },
     container: {
         marginHorizontal: '25%',
-        width: '50%'
+        width: '50%',
     }
   });

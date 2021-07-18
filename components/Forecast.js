@@ -15,7 +15,8 @@ export default function Forecast(props) {
 const styles = StyleSheet.create({
     mainStyle: {
         textAlign: 'center',
-        marginTop: 180
+        marginTop: 180,
+        color: '#665954'
     },
     tempStyle: {
         textAlign: 'center',
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     descriptionStyle: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#665954'
     }
 })

@@ -1,11 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
 import React,{ useState, useEffect } from 'react';
 import { ImageBackground, StyleSheet, Text } from 'react-native';
 import Forecast from './Forecast';
 
 export default function Weather(props) {
     const APIKey = 'ea8a78efe25ee1ecb41aee4b7fec0e2c'
-    const navigation = useNavigation()
     const [forecastInfo, setForecastInfo] = useState({
         name: '-',
         main: '-',
@@ -33,7 +31,7 @@ export default function Weather(props) {
     }, [props.zipCode])
        
     return (
-        <ImageBackground source={require('../bg1.jpg')} style={styles.backdrop}>
+        <ImageBackground source={require('../source/bg1.jpg')} style={styles.backdrop}>
             <Text style={styles.cityNameStyle}>{forecastInfo.name}</Text>
             <Text style={styles.zipCodeStyle}>{props.zipCode}</Text>
             <Forecast {...forecastInfo} />
@@ -50,10 +48,10 @@ const styles = StyleSheet.create({
     cityNameStyle: {
         paddingTop: 10,
         fontSize: 30,
-        color:'white'
+        color: '#665954'
     },
     zipCodeStyle: {
-        color: 'white',
+        color: '#665954',
         paddingTop: 10,
         fontSize: 20
     }
